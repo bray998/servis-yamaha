@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Servis Yamaha</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f7;
+      padding: 30px;
+    }
+    .form-container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #0033a0;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #0033a0;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #00227b;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Booking Antrian Servis Yamaha</h2>
+    <form id="bookingForm">
+      <label for="nama">Nama Lengkap:</label>
+      <input type="text" id="nama" required />
+
+      <label for="noHp">Nomor HP:</label>
+      <input type="tel" id="noHp" required />
+
+      <label for="tanggal">Tanggal Servis:</label>
+      <input type="date" id="tanggal" required />
+
+      <label for="jam">Jam Servis:</label>
+      <select id="jam" required>
+        <option value="">-- Pilih Jam --</option>
+        <option>08:00</option>
+        <option>10:00</option>
+        <option>13:00</option>
+        <option>15:00</option>
+      </select>
+
+      <label for="jenis">Jenis Servis:</label>
+      <select id="jenis" required>
+        <option value="">-- Pilih Jenis Servis --</option>
+        <option>Servis Ringan</option>
+        <option>Servis Berkala</option>
+        <option>Servis Berat</option>
+      </select>
+
+      <button type="submit">Kirim Booking</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nama = document.getElementById('nama').value;
+      const noHp = document.getElementById('noHp').value;
+      const tanggal = document.getElementById('tanggal').value;
+      const jam = document.getElementById('jam').value;
+      const jenis = document.getElementById('jenis').value;
+
+      const pesan = `*BOOKING SERVIS YAMAHA*\n\nNama: ${nama}\nNo HP: ${noHp}\nTanggal: ${tanggal}\nJam: ${jam}\nJenis Servis: ${jenis}`;
+      const nomorAdmin = '6282112638491'; // GANTI dengan nomor admin (format internasional tanpa +)
+
+      const url = `https://wa.me/${nomorAdmin}?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+      
+       setTimeout(() => {
+        window.open(`https://wa.me/${noKonsumen}?text=${encodeURIComponent(pesanKeKonsumen)}`, '_blank');
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
